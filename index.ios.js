@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { AppRegistry, StyleSheet, View } from 'react-native';
 import CityList from './app/components/CityList';
 
 const styles = StyleSheet.create({
@@ -12,13 +8,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const TripRevisor = function TripRevisor() {
+function TripRevisor() {
   return (
     <View style={styles.container}>
       <CityList />
     </View>
   );
-};
-
+}
 
 AppRegistry.registerComponent('TripRevisor', () => TripRevisor);

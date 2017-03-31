@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-Dimensions,
-Image,
-StyleSheet,
-ScrollView,
-Text,
-} from 'react-native';
+import { Dimensions, Image, StyleSheet, ScrollView, Text } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 const london = require('../images/london.jpg');
@@ -16,7 +10,7 @@ const melbourne = require('../images/melbourne.jpg');
 const styles = StyleSheet.create({
   image: {
     width,
-    height: Math.floor(height * 0.3), // we want 3 and a bit images to display
+    height: Math.floor(height * 0.3),
     justifyContent: 'flex-end',
   },
   title: {
