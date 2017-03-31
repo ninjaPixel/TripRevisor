@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   },
 });
 
+
 function TripRevisor() {
   return (
     <View style={styles.container}>
