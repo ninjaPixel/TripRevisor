@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
 	title: {
 		color: 'white',
 		fontSize: 30,
-		padding: 5
+		padding: 5,
+		backgroundColor: 'transparent'
 	}
 });
 
