@@ -8,13 +8,10 @@ const styles = StyleSheet.create({
   },
 });
 
-
-function TripRevisor() {
-  return (
-    <View style={styles.container}>
-      <CityList />
-    </View>
+const TripRevisor = () => (
+  <View style={styles.container}>
+    <CityList />
+  </View>
   );
-}
 
 AppRegistry.registerComponent('TripRevisor', () => TripRevisor);
