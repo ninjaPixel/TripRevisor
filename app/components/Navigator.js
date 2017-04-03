@@ -3,9 +3,11 @@ import HomeScreen from './HomeScreen';
 import CityDetails from './CityDetails';
 
 
-const Nav = StackNavigator({
+const Navigator = StackNavigator({
   Home: { screen: HomeScreen },
   City: { screen: CityDetails },
-});
+}, {
+  initialRouteName: 'Home' },
+);
 
-export default Nav;
+export default Navigator;

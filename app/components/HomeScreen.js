@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = () => (
+const HomeScreen = ({ navigation }) => (
   <View style={styles.container}>
-    <CityList />
+    <CityList navigation={navigation} />
   </View>
   );
 
