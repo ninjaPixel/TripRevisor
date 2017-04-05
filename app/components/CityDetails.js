@@ -1,7 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import Meteor from 'react-native-meteor';
 import { ScrollView, Text } from 'react-native';
 
+const styles = StyleSheet.create({
+  text: {
+    padding: 15,
+  },
+});
 
 class CityDetails extends Component {
   constructor(props) {
@@ -10,6 +16,7 @@ class CityDetails extends Component {
     this.state = {
       loading: true,
       error: '',
+      city: {},
     };
   }
 
@@ -17,16 +24,18 @@ class CityDetails extends Component {
     const params = { name: this.props.navigation.state.params.name };
     Meteor.call('cities.findOne', params, (err, cities) => {
       if (err) {
-        console.log(err);
         this.setState({ error: err.reason });
-
       } else {
-        console.log('cities', cities);
-        this.setState({ error: '' });
-
+        this.setState({ error: '', city: cities });
       }
       this.setState({ loading: false });
     });
+  }
+
+  renderCityDetails() {
+    return (
+      <Text style={styles.text}>{this.state.city.text}</Text>
+    );
   }
 
   render() {
@@ -35,14 +44,13 @@ class CityDetails extends Component {
     return (
       <ScrollView>
         { isLoading ? (
-          <Text>Loading {this.props.navigation.state.params.name} details...</Text>
-        ) : (
-          <Text>Hello, {this.props.navigation.state.params.name}!</Text>
-        )}
+          <Text>Loading data for {this.props.navigation.state.params.name}...</Text>
+        ) : this.renderCityDetails()
+        }
 
         {error ? (
           <Text>{error}</Text>
-        ): (null)}
+        ) : (null)}
       </ScrollView>
     );
   }
