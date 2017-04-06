@@ -7,6 +7,10 @@ const styles = StyleSheet.create({
   text: {
     padding: 15,
   },
+  image: {
+    width: 400,
+    height: 400,
+  },
 });
 
 class CityDetails extends Component {
@@ -36,9 +40,8 @@ class CityDetails extends Component {
     return this.state.city.photos.map((url, i) => (
       <Image
         key={i} source={{ uri: url }}
-        style={{ width: 400, height: 400 }}
+        style={styles.image}
       />
-
         ));
   }
 
