@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import Meteor from 'react-native-meteor';
-import { ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Image } from 'react-native';
 
 const styles = StyleSheet.create({
   text: {
@@ -32,9 +32,24 @@ class CityDetails extends Component {
     });
   }
 
+  renderImages() {
+    return this.state.city.photos.map((url, i) => (
+      <Image
+        key={i} source={{ uri: url }}
+        style={{ width: 400, height: 400 }}
+      />
+
+        ));
+  }
+
   renderCityDetails() {
     return (
-      <Text style={styles.text}>{this.state.city.text}</Text>
+      <View>
+        <ScrollView horizontal>
+          {this.renderImages()}
+        </ScrollView>
+        <Text style={styles.text}>{this.state.city.text}</Text>
+      </View>
     );
   }
 
